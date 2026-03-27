@@ -17,7 +17,7 @@ from IMDLBenCo.evaluation import PixelF1, ImageF1
 
 from IMDLBenCo.training_scripts.tester import test_one_epoch
 
-from mesorch import Mesorch
+from mesorch import MesorchFull
 from mesorch_p import Mesorch_P
 def get_args_parser():
     parser = argparse.ArgumentParser('IMDLBench testing launch!', add_help=True)
