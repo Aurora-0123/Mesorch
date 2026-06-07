@@ -1,11 +1,11 @@
 base_dir="./eval_dir_mesorch_permute_f1"
 mkdir -p ${base_dir}
 
-CUDA_VISIBLE_DEVICES=0,1,2,3 \
+CUDA_VISIBLE_DEVICES=0 \
 torchrun  \
     --standalone    \
     --nnodes=1     \
-    --nproc_per_node=4 \
+    --nproc_per_node=1 \
 ./test_permute.py \
     --model Mesorch \
     --world_size 1 \

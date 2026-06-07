@@ -17,7 +17,7 @@ from IMDLBenCo.datasets import ManiDataset, JsonDataset
 from IMDLBenCo.evaluation import PixelF1, ImageF1
 
 from IMDLBenCo.training_scripts.tester import test_one_epoch
-from mesorch import Mesorch
+from mesorch import MesorchFull
 from mesorch_p import Mesorch_P
 # robustness wrappers
 from IMDLBenCo.transforms.robustness_wrapper import (
@@ -244,8 +244,7 @@ def main(args, model_args):
 
             if chkpt_dir.endswith(".pth"):
                 print("Loading checkpoint: %s" % chkpt_dir)
-                ckpt = os.path.join(args.checkpoint_path, chkpt_dir)
-                ckpt = torch.load(ckpt, map_location='cuda')
+                ckpt = torch.load(chkpt_dir, map_location='cuda',weights_only=False)
                 model.module.load_state_dict(ckpt['model'], strict=False)            
                 test_stats = test_one_epoch(
                     model=model,

@@ -1,0 +1,1 @@
+{"test_pixel-level F1": 0.5709739981099323, "epoch": 60}
